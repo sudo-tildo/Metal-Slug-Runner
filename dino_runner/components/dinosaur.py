@@ -1,6 +1,6 @@
 import pygame
 import os
-
+from dino_runner.utils.hitbox import fix_rect
 from dino_runner.utils.constants import RUNNING, JUMPING, DUCKING
 from dino_runner.utils.constants import DRIVE, JUMP, DUCK
 
@@ -14,29 +14,43 @@ class Dinosaur:
     def __init__(self):
         self.image = DRIVE[0]
         self.dino_rect = self.image.get_rect()
+        self.dino_rect.size = fix_rect(self.dino_rect, 0.70)
         self.dino_rect.x = X_POS
         self.dino_rect.y = Y_POS
 
-        self.dino_run = True
+        self.dino_run = False
         self.dino_jump = False
         self.dino_duck = False
         self.step_index = 0
         self.duck_index = 0
         self.jump_index = 0
+        
         self.jump_vel = JUMP_VEL
+        
+        pygame.init()
+       
+        slug_drive = pygame.mixer.Sound('SlugDriving.wav')
+        slug_drive.play(-1)
+        slug_drive.set_volume(0.06)
 
 
     def run(self):
+        
+        self.dino_run = True
         self.image = DRIVE[self.step_index + 0]
         self.image = pygame.transform.scale(self.image, (62*2, 59*2))
         self.dino_rect = self.image.get_rect()
         self.dino_rect.x = X_POS
         self.dino_rect.y = Y_POS - 25
         self.step_index += 1
-
+        
+        
+        
         if self.step_index == 8:
             self.step_index = 0
 
+         
+        
         
 
     def jump(self):
@@ -44,14 +58,14 @@ class Dinosaur:
         self.image = pygame.transform.scale(self.image, (55*2, 73*2))
         if self.dino_jump:
             self.dino_rect.y -= self.jump_vel * 4
-            self.jump_vel -= 0.9
+            self.jump_vel -= 0.7
             self.jump_index += 1
 
         if self.jump_vel < -JUMP_VEL:
             self.dino_jump = False
             self.dino_rect.y = Y_POS
             self.jump_vel = JUMP_VEL
-
+        
         if self.jump_index == 7:
             self.jump_index = 0
 

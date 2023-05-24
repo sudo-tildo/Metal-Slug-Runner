@@ -14,6 +14,11 @@ class Cactus(Obstacle):
 
         self.rect.y = LARGE_CACTUS_Y_POS
 
+        pygame.init()
+        enemy_drive = pygame.mixer.Sound('EnemyTankDriving.wav')
+        enemy_drive.play()
+        enemy_drive.set_volume(0.05)
+
     def drive(self):
          self.image = ENEMYTANK[self.step_index + 0] 
          self.image = pygame.transform.scale(self.image, (71*2, 56*2))

@@ -28,19 +28,25 @@ class Game:
         # Game loop: events - update - draw
         self.playing = True
         self.reset_game()
+        
         while self.playing:
             self.events()
             self.update()
             self.draw()
-    
+        
     def execute(self):
         self.executing = True
+        pygame.init()
+        pygame.mixer.music.set_volume(0.3)
+        pygame.mixer.music.load('METAL-SLUG-1-STAGE-1.mp3')
+        pygame.mixer.music.play(-1)
         while self.executing:
             if not self.playing:
                 self.show_menu()
         pygame.display.quit()
         pygame.quit()
-    
+       
+        
     def reset_game(self):
         self.obstacle_manager.reset_obstacles()
         self.game_speed = 20
@@ -108,6 +114,7 @@ class Game:
         self.screen.blit(text,text_rect)
 
     def show_menu(self):
+        
         self.screen.fill((255,255,255))
 
         half_screen_height = SCREEN_HEIGHT //2
