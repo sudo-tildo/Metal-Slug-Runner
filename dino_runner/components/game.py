@@ -1,10 +1,11 @@
 import pygame
 
-from dino_runner.utils.constants import BG, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, FONT_STYLE
+from dino_runner.utils.constants import BG, ICON, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, FONT_STYLE, DEFAULT_TYPE
 from dino_runner.components.dinosaur import Dinosaur
 from dino_runner.components.obstacles.obstacle_manager import ObstacleManager
-
-
+from dino_runner.components.power_ups.power_up_manager import PowerUpManager
+from dino_runner.components.power_ups.hammer import Hammer
+from dino_runner.components.power_ups.shield import Shield
 class Game:
     def __init__(self):
         pygame.init()
@@ -17,7 +18,8 @@ class Game:
         self.game_speed = 20
         self.x_pos_bg = 0
         self.y_pos_bg = 250
-        self.player = Dinosaur()
+        
+        self.power_up_manager = PowerUpManager()
         self.obstacle_manager = ObstacleManager()
         self.death_count = 0
         self.score = 0
@@ -48,7 +50,9 @@ class Game:
        
         
     def reset_game(self):
+        self.player = Dinosaur()
         self.obstacle_manager.reset_obstacles()
+        self.power_up_manager.reset_power_ups()
         self.game_speed = 20
         self.score = 0
     
@@ -62,6 +66,7 @@ class Game:
         user_input = pygame.key.get_pressed()
         self.player.update(user_input)
         self.obstacle_manager.update(self)
+        self.power_up_manager.update(self)
         self.update_score()
 
     def update_score(self):
@@ -77,9 +82,26 @@ class Game:
         self.player.draw(self.screen)
         self.obstacle_manager.draw(self.screen)
         self.draw_score()
-        pygame.display.update()
+        self.draw_power_up_time()
+        self.power_up_manager.draw(self.screen)
         pygame.display.flip()
 
+    
+    def draw_power_up_time(self):
+        if self.player.has_power_up:
+            time_to_show = round((self.player.power_up_time_up - pygame.time.get_ticks())/1000, 2)
+
+            if time_to_show >=0:
+                font = pygame.font.Font(FONT_STYLE, 22)
+                text = font.render(f"Power Up: {time_to_show}", True, (255,0,0))
+                text_rect = text.get_rect()
+                text_rect.x = 425
+                text_rect.y = 100
+                self.screen.blit(text, text_rect)
+            else:
+                self.player.has_power_up = False
+                self.player.type = DEFAULT_TYPE    
+                        
     def draw_score(self):
         font = pygame.font.Font(FONT_STYLE, 22)
         text = font.render(f"Score: {self.score}", True, (0,0,0))
