@@ -1,7 +1,7 @@
 import pygame
 import os
 from dino_runner.utils.hitbox import fix_rect
-from dino_runner.utils.constants import RUNNING, JUMPING, DUCKING, DEFAULT_TYPE, SHIELD_TYPE, DUCKING_SHIELD, JUMPING_SHIELD, RUNNING_SHIELD, HAMMER_TYPE, DUCKING_HAMMER, RUNNING_HAMMER, JUMPING_HAMMER
+from dino_runner.utils.constants import DEFAULT_TYPE, SHIELD_TYPE, DUCKING_SHIELD, JUMPING_SHIELD, RUNNING_SHIELD, HAMMER_TYPE, DUCKING_HAMMER, RUNNING_HAMMER, JUMPING_HAMMER
 from dino_runner.utils.constants import DRIVE, JUMP, DUCK
 
 
@@ -63,7 +63,7 @@ class Dinosaur:
         
 
     def jump(self):
-        self.image = JUMP[self.jump_index + 0]
+        self.image = JUMP[self.jump_index, 0]
         self.image = JUMP_IMG[self.type]
         self.image = pygame.transform.scale(self.image, (55*2, 73*2))
         if self.dino_jump:

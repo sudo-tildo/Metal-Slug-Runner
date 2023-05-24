@@ -1,16 +1,9 @@
 import pygame
 import random
-from dino_runner.components import power_ups
 from dino_runner.components.obstacles.cactus import Cactus
 from dino_runner.components.obstacles.bird import Bird
 from dino_runner.utils.constants import SMALL_CACTUS, LARGE_CACTUS, BIRD
-from dino_runner.utils.constants import SMALL_CACTUS_Y_POS, LARGE_CACTUS_Y_POS, BIRD_Y_POS
-from dino_runner.components.power_ups import power_up, power_up_manager
-from dino_runner.components.power_ups.power_up_manager import PowerUpManager
-from dino_runner.components.power_ups.hammer import Hammer
-from dino_runner.components.power_ups.shield import Shield
-from dino_runner.utils.constants import SMALL_CACTUS, LARGE_CACTUS, BIRD, HAMMER_TYPE, SHIELD_TYPE
-from dino_runner.utils.constants import SCREEN_WIDTH
+from dino_runner.utils.constants import SMALL_CACTUS, LARGE_CACTUS, BIRD, HAMMER_TYPE, SHIELD_TYPE, SMALL_CACTUS_Y_POS, LARGE_CACTUS_Y_POS, BIRD_Y_POS
 
 
 class ObstacleManager():
@@ -38,12 +31,14 @@ class ObstacleManager():
 
         for obstacle in self.obstacles:
             obstacle.update(game.game_speed, self.obstacles)
-
-            if (game.player.type == SHIELD_TYPE and not self.obst == 3) or (game.player.type == HAMMER_TYPE and self.obst == 3) or not game.player.has_power_up:
+            
+            """ if (game.player.type == SHIELD_TYPE and not self.obst == 3) or (game.player.type == HAMMER_TYPE and self.obst == 3) or not game.player.has_power_up:
                 pygame.time.delay(500)
                 game.playing = False
                 game.death_count += 1
                 break
+            else:
+                    self.obstacles.remove(obstacle) """
         
             
         
