@@ -10,7 +10,7 @@ X_POS = 80
 Y_POS = 320
 JUMP_VEL = 8.5
 
-DUCK_IMG = {DEFAULT_TYPE: DUCK, SHIELD_TYPE: DUCKING_SHIELD, HAMMER_TYPE: DUCKING_HAMMER }
+DUCK_IMG = {DEFAULT_TYPE: DUCK, SHIELD_TYPE: DUCK, HAMMER_TYPE: DUCK} # DUCKING_SHIELD DUCKING_HAMMER
 JUMP_IMG = {DEFAULT_TYPE: JUMP, SHIELD_TYPE: JUMPING_SHIELD, HAMMER_TYPE: JUMPING_HAMMER}
 RUN_IMG = {DEFAULT_TYPE: DRIVE, SHIELD_TYPE: RUNNING_SHIELD, HAMMER_TYPE: RUNNING_HAMMER}
 
@@ -46,7 +46,7 @@ class Dinosaur:
         
         self.dino_run = True
         self.image = RUN_IMG[self.type][self.step_index//5]
-        self.image = DRIVE[self.step_index + 0]
+        self.image = DRIVE[self.step_index]
         self.image = pygame.transform.scale(self.image, (62*2, 59*2))
         self.dino_rect = self.image.get_rect()
         self.dino_rect.x = X_POS
@@ -63,8 +63,8 @@ class Dinosaur:
         
 
     def jump(self):
-        self.image = JUMP[self.jump_index, 0]
-        self.image = JUMP_IMG[self.type]
+        self.image = JUMP[self.jump_index]
+        # self.image = JUMP_IMG[self.type]
         self.image = pygame.transform.scale(self.image, (55*2, 73*2))
         if self.dino_jump:
             self.dino_rect.y -= self.jump_vel * 4

@@ -31,15 +31,15 @@ class ObstacleManager():
 
         for obstacle in self.obstacles:
             obstacle.update(game.game_speed, self.obstacles)
+            if game.player.dino_rect.colliderect(obstacle.rect):    
+                if (game.player.type == SHIELD_TYPE and not self.obst == 3) or (game.player.type == HAMMER_TYPE and self.obst == 3) or not game.player.has_power_up:
+                    pygame.time.delay(500)
+                    game.playing = False
+                    game.death_count += 1
+                    break
+                else:
+                        self.obstacles.remove(obstacle)
             
-            """ if (game.player.type == SHIELD_TYPE and not self.obst == 3) or (game.player.type == HAMMER_TYPE and self.obst == 3) or not game.player.has_power_up:
-                pygame.time.delay(500)
-                game.playing = False
-                game.death_count += 1
-                break
-            else:
-                    self.obstacles.remove(obstacle) """
-        
             
         
         

@@ -103,7 +103,7 @@ class Game:
                         
     def draw_score(self):
         font = pygame.font.Font(FONT_STYLE, 22)
-        text = font.render(f"Score: {self.score}", True, (0,0,0))
+        text = font.render(f"Score: {self.score}", True, (255,255,255))
         text_rect = text.get_rect()
         text_rect.center = (1000, 50)
 
