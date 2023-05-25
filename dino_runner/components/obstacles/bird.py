@@ -13,7 +13,7 @@ class Bird(Obstacle):
         pygame.init()
         missile_fly = pygame.mixer.Sound('MissileFlying.wav')
         missile_fly.play()
-        missile_fly.set_volume(0.1)
+        missile_fly.set_volume(0.05)
         
        
         

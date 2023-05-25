@@ -37,10 +37,7 @@ class Game:
         
     def execute(self):
         self.executing = True
-        pygame.init()
-        pygame.mixer.music.set_volume(0.3)
-        pygame.mixer.music.load('METAL-SLUG-1-STAGE-1.mp3')
-        pygame.mixer.music.play(-1)
+        
         while self.executing:
             if not self.playing:
                 self.show_menu()
@@ -50,6 +47,10 @@ class Game:
         
     def reset_game(self):
         self.player = Dinosaur()
+        pygame.init()
+        pygame.mixer.music.load('METAL-SLUG-1-STAGE-1.mp3')
+        pygame.mixer.music.set_volume(0.2)
+        pygame.mixer.music.play(-1)
         self.obstacle_manager.reset_obstacles()
         self.power_up_manager.reset_power_ups()
         self.game_speed = 20
@@ -135,6 +136,7 @@ class Game:
         self.screen.blit(text,text_rect)
 
     def show_menu(self):
+        pygame.mixer.music.stop()
         
         self.screen.fill((255,255,255))
 

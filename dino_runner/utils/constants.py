@@ -66,32 +66,70 @@ RUNNING = [
 ]
 
 RUNNING_SHIELD = [
-    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoRun1Shield.png")),
-    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoRun2.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlame1.png")), 
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlame2.png")), 
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlame3.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlame4.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlame5.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlame6.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlame7.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlame8.png"))
 ]
 
 RUNNING_HAMMER = [
-    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoDuck1Hammer.png")),
-    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoRun2.png")),
-]
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerDrive1.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerDrive2.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerDrive3.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerDrive4.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerDrive5.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerDrive6.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerDrive7.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerDrive8.png"))
+]    
 
 JUMPING = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJump.png"))
-JUMPING_SHIELD = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpShield.png"))
-JUMPING_HAMMER = pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoJumpHammer.png"))
-
+JUMPING_SHIELD = [
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlameJump1.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlameJump2.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlameJump3.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlameJump4.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlameJump5.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlameJump6.png"))
+]                  
+JUMPING_HAMMER = [ 
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerJump1.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerJump2.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerJump3.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerJump4.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerJump5.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerJump6.png"))
+    
+                  
+]
 DUCKING = [
     pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoDuck1.png")),
     pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoDuck2.png")),
 ]
 
 DUCKING_SHIELD = [
-    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoDuck1Shield.png")),
-    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoDuck2.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlameDuck1.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlameDuck2.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlameDuck3.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlameDuck4.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlameDuck5.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlameDuck6.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugFlameDuck7.png"))
+
 ]
 
 DUCKING_HAMMER = [
-    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoDuck1Hammer.png")),
-    pygame.image.load(os.path.join(IMG_DIR, "Dino/DinoDuck2.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerDuck1.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerDuck2.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerDuck3.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerDuck4.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerDuck5.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerDuck6.png")),
+    pygame.image.load(os.path.join(IMG_DIR, "Slug/SlugHammerDuck7.png"))
 ]
 
 SMALL_CACTUS = [
@@ -132,8 +170,8 @@ CAR = [
     pygame.image.load(os.path.join(IMG_DIR, "Car/Car3Destroyed.png"))
 ]
 CLOUD = pygame.image.load(os.path.join(IMG_DIR, 'Other/Cloud.png'))
-SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'Other/shield.png'))
-HAMMER = pygame.image.load(os.path.join(IMG_DIR, 'Other/hammer.png'))
+SHIELD = pygame.image.load(os.path.join(IMG_DIR, 'PowerUps/FlameShot.png'))
+HAMMER = pygame.image.load(os.path.join(IMG_DIR, 'PowerUps/HeavyMG.png'))
 
 BG = [ 
     pygame.image.load(os.path.join(IMG_DIR, 'Scenario/bg1.png'))
